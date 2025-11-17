@@ -1,0 +1,5 @@
+name=pdxlander
+author=Paul Riddle, Mike Friedman, gwem
+description=xlander (1992) playdate port
+bundleID=pics.salt.pdxlander
+imagePath=
