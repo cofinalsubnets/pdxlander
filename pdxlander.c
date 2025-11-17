@@ -204,8 +204,8 @@ static int update(void* userdata) {
   } else {
     Pd->graphics->clear(kColorWhite);
     Pd->graphics->setScreenClipRect(0, 0, 400, 240);
-    UpdateDisplay();
-    Pd->graphics->markUpdatedRows(0, LCD_ROWS); }
+    UpdateDisplay(); }
+  Pd->graphics->markUpdatedRows(0, LCD_ROWS);
 	return 1; }
 
 /*
