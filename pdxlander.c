@@ -560,7 +560,7 @@ static void LoadWorld(void) {
    seed_rng();
    for (x = -HALF_WORLD_WIDTH; x < HALF_WORLD_WIDTH; r ^= 1, x += EDGE_LENGTH + (int) x_offset)
       for (y = r * (int) y_offset - HALF_WORLD_LENGTH; y < HALF_WORLD_LENGTH; y += (int) (2.0f * y_offset))
-        height = random() % 3 ? 0 : random() % 2500,
+        height = rand() % 3 ? 0 : rand() % 2500,
         line.x1 = x,
         line.y1 = height,
         line.z1 = y,
@@ -586,8 +586,8 @@ static void LoadWorld(void) {
    /*
     * Drop the landing pad "somewhere on the ground"
     */
-   goal_x = (random () % WORLD_WIDTH) - HALF_WORLD_WIDTH;
-   goal_y = (random () % WORLD_LENGTH) - HALF_WORLD_LENGTH;
+   goal_x = (rand () % WORLD_WIDTH) - HALF_WORLD_WIDTH;
+   goal_y = (rand () % WORLD_LENGTH) - HALF_WORLD_LENGTH;
    for (count = 0; count < PADSIZE; count++)
       landingpad[count].x1 += goal_x,
       landingpad[count].x2 += goal_x,
@@ -743,7 +743,7 @@ static void draw_label(int x, int y, int pad, const char *text) {
   Pd->graphics->fillRect(x, y, width, height, kColorBlack);
   Pd->graphics->drawText(text, strlen(text), kASCIIEncoding, x + pad, y + pad); }
 
-static void seed_rng(void) { srandom((long)Pd->system->getCurrentTimeMilliseconds()); }
+static void seed_rng(void) { srand((long)Pd->system->getCurrentTimeMilliseconds()); }
 static void *Malloc(size_t n) { return Pd->system->realloc(NULL, n); }
 static void Free(void*x) { Pd->system->realloc(x, 0); }
 static void Error(const char *s) { Pd->system->error("Error:  %s\n", s); }
