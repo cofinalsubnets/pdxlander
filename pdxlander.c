@@ -618,7 +618,7 @@ static LCDPattern panel_bg = {
   0b11111111,
 };
 static void UpdateDisplay(void) {
-  Pd->graphics->fillRect(0, viewHeight, viewWidth, panelHeight, (long unsigned) panel_bg);
+  Pd->graphics->fillRect(0, viewHeight, viewWidth, panelHeight, (LCDColor) panel_bg);
 
   /* Heading indicator */
   Pd->graphics->fillEllipse(4, 184, 52, 52, 0.0f, 360.0f, kColorWhite);
